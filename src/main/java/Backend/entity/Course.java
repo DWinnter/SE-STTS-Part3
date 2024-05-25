@@ -5,7 +5,21 @@ public class Course {
 
     private String name;
 
+    private String teacher;
+
     private String description;
+
+    public Course(int id, String name,String teacher, String description) {
+        this.id = id;
+        this.name = name;
+        this.teacher = teacher;
+        this.description = description;
+    }
+
+    public Course(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;
