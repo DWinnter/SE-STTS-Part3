@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--上面的文件是mybatis的一些版本声明,不用管-->
+<configuration>
+    <!--这里就是配置信息-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--数据库的连接信息-->
+                <!--jdbc驱动-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--连接的是哪一个数据库-->
+                <property name="url" value="jdbc:mysql:///base_1?useSSL=false"/>
+                <!--密码和用户名-->
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--加载sql的映射文件-->
+        <!--这里加载文件的目的其实就是让你写的sql语句存放的xml文件,让这个mybatis通过他自己的这个mybatis配置文件能够识别到,也就是说可以通过这个路径,我知道你等会儿操作数据库的语句是什么-->
+        <!--比如我这里要查的是q_customer表中的相关内容,这里就写的是你查询这个表要用到的sql语句,然后这个sql语句是被存放在下面这个xml文件中,文件名其实无所谓,你也可以直接叫selectq_customer.xml,文件名之所以叫Mapper,和后面的用Mapper操作有关系,然后这里为什么叫mapper,其实和java里的map是一样的,异曲同工的命名由来-->
+        <mapper resource="q_customerMapper.xml"/>
+    </mappers>
+</configuration>
